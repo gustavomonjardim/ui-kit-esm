@@ -1,0 +1,26 @@
+{
+  "name": "ui-kit-esm",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "scripts": {
+    "build": "tsup src/ --dts --format esm, cjs --minify --sourcemap"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/styled-components": "^5.1.27",
+    "react": "^18.2.0",
+    "styled-components": "^6.0.8",
+    "tsup": "^7.2.0",
+    "typescript": "^5.2.2"
+  },
+  "peerDependencies": {
+    "react": "16.x | 17.x | 18.x"
+  }
+}
