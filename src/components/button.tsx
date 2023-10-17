@@ -1,17 +1,25 @@
-import styled from "styled-components";
 import React from "react";
-
-const StyledButton = styled.button`
-  background-color: green;
-`;
+import styled from "styled-components";
+import { colors } from "../tokens";
+import { Button as RACButton, PressEvent } from "react-aria-components";
 
 type Props = {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: (e: PressEvent) => void;
   children: string;
+  type?: "button" | "submit";
 };
 
-const Button = ({ children, onClick }: Props) => {
-  return <StyledButton onClick={onClick}>{children}</StyledButton>;
+const StyledButton = styled(RACButton)`
+  background-color: ${colors.secondary};
+  color: ${colors.white};
+`;
+
+const Button = ({ children, onClick, type }: Props) => {
+  return (
+    <StyledButton type={type} onPress={onClick}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default Button;
