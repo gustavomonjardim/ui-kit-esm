@@ -1,12 +1,12 @@
 import React from "react";
 
-type Props = {
+export type TextFieldProps = {
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   value?: string;
   name?: string;
 };
 
-const TextField = ({ onChange, value, name }: Props) => {
+const TextField = ({ onChange, value, name }: TextFieldProps) => {
   return <input name={name} onChange={onChange} value={value} />;
 };
 

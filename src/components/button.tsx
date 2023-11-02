@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { colors } from "../tokens";
 import { Button as RACButton, PressEvent } from "react-aria-components";
 
-type Props = {
+export type ButtonProps = {
   onClick?: (e: PressEvent) => void;
   children: string;
   type?: "button" | "submit";
@@ -14,7 +14,7 @@ const StyledButton = styled(RACButton)`
   color: ${colors.white};
 `;
 
-const Button = ({ children, onClick, type }: Props) => {
+const Button = ({ children, onClick, type }: ButtonProps) => {
   return (
     <StyledButton type={type} onPress={onClick}>
       {children}

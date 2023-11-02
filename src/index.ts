@@ -1,2 +1,5 @@
-export { default as Button } from "./components/button";
-export { default as TextField } from "./components/textfield";
+export { default as Button, type ButtonProps } from "./components/button";
+export {
+  default as TextField,
+  type TextFieldProps,
+} from "./components/textfield";
