@@ -1,6 +1,7 @@
 {
   "name": "ui-kit-esm",
-  "version": "1.0.8",
+  "version": "1.1.1",
+  "type": "module",
   "files": [
     "dist/",
     "src/"
@@ -8,7 +9,7 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsup",
-    "tsbuild": "tsc"
+    "lint:ts": "tsc"
   },
   "license": "ISC",
   "devDependencies": {
@@ -28,9 +29,11 @@
     ".": {
       "types": "./dist/index.d.mts",
       "import": "./dist/index.mjs",
+      "require": "./dist/cjs/index.cjs",
       "default": "./dist/cjs/index.cjs"
     }
   },
+  "sideEffect": false,
   "dependencies": {
     "react-aria-components": "1.0.0-beta.1"
   }
