@@ -1,40 +1,52 @@
 {
   "name": "ui-kit-esm",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "type": "module",
-  "files": [
-    "dist/",
-    "src/"
-  ],
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "tsup",
-    "lint:ts": "tsc"
+    "lint:ts": "tsc",
+    "check-build": "pnpm publint && pnpm attw",
+    "publint": "publint",
+    "attw": "attw --pack ."
   },
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/cjs/index.d.cts",
   "license": "ISC",
+  "dependencies": {
+    "react-aria-components": "1.0.0-beta.1",
+    "styled-components": "6.1.0"
+  },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.13.0",
     "@types/react": "^18.2.21",
     "@types/styled-components": "^5.1.27",
+    "publint": "^0.2.5",
     "react": "^18.2.0",
     "rimraf": "^5.0.5",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "react": "16.x || 17.x || 18.x",
-    "styled-components": "5.x || 6.x"
+    "react": "16.x || 17.x || 18.x"
   },
   "exports": {
     "./package.json": "./package.json",
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/cjs/index.cjs",
-      "default": "./dist/cjs/index.cjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      }
     }
   },
-  "sideEffects": false,
-  "dependencies": {
-    "react-aria-components": "1.0.0-beta.1"
-  }
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "sideEffects": false
 }
